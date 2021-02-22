@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  text-align: center; }
+
+.nav__ul,
+.desktop {
+  display: none; }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "DM Serif Display", sans-serif;
+  font-weight: 400; }
+
+h1 {
+  font-size: 3rem;
+  line-height: 1; }
+
+h3 {
+  font-size: 1.5rem; }
+
+h5 {
+  font-size: 1rem; }
+
+p,
+li,
+h5 {
+  font-family: "Karla", sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.5; }
+
+.button {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 0.5rem 2rem;
+  background-color: transparent;
+  border: 2px solid #fafafa; }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem; }
+  .nav__logo {
+    height: 100%; }
+
+.hero {
+  background-color: #2d2640;
+  color: #fafafa; }
+  .hero__img {
+    width: 100%;
+    height: auto; }
+  .hero__text {
+    background: url(/images/bg-pattern-intro-left-mobile.svg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding: 4rem 0; }
+  .hero__title {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem; }
+  .hero__p {
+    padding: 0 1.5rem; }
+  .hero__btn {
+    margin: 1.5rem 0; }
+
+.different {
+  position: relative;
+  padding: 5rem 0; }
+  .different::before {
+    background: url(/images/bg-pattern-intro-right-mobile.svg) no-repeat;
+    height: 350px;
+    width: 120px;
+    content: "";
+    position: absolute;
+    top: -150px;
+    right: 0; }
+  .different__img {
+    margin-bottom: 1.5rem;
+    margin-top: 3rem; }
+  .different__subtitle {
+    margin-bottom: 1rem; }
+  .different__text {
+    padding: 0 1.5rem;
+    font-weight: 700;
+    color: #837d87; }
+
+.how {
+  background: #2d2640 url(/images/bg-pattern-how-we-work-mobile.svg) right top no-repeat;
+  color: #fafafa;
+  padding: 4rem 0;
+  margin: 0 1.5rem;
+  margin-bottom: 5rem; }
+  .how__title {
+    margin-bottom: 2rem; }
+
+.footer {
+  background: #fafafa;
+  padding-bottom: 3rem; }
+  .footer__container {
+    background: url(/images/bg-pattern-footer-mobile.svg) no-repeat top/contain; }
+  .footer__icons {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #837d87;
+    margin: 2rem 1.5rem; }
+  .footer__logo {
+    padding-bottom: 1.5rem; }
+  .footer__social {
+    padding: 0.5rem; }
+  .footer__section {
+    text-transform: uppercase;
+    margin-bottom: 2rem; }
+  .footer__title {
+    color: #837d87;
+    margin-bottom: 1rem; }
+  .footer__li {
+    font-weight: 700;
+    padding: 0.3rem 0; }
+
+@media (min-width: 800px) {
+  body {
+    text-align: left; }
+  .nav__ul,
+  .desktop {
+    display: block; }
+  .mobile {
+    display: none; }
+  .wrapper {
+    margin: 0 5%; }
+  .nav {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #837d87; }
+    .nav__ul {
+      display: flex; }
+    .nav__li {
+      list-style: none;
+      padding: 0 1rem; }
+    .nav__btn {
+      color: #2d2640;
+      border: 2px solid #2d2640; }
+  .hero {
+    background: linear-gradient(#2d2640 70%, white 70%); }
+    .hero__container {
+      display: flex;
+      flex-direction: row-reverse; }
+    .hero__img {
+      width: 50%; } }

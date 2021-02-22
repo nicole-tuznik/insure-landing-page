@@ -1,0 +1,239 @@
+// Colors
+$dk-violet: hsl(256, 26%, 20%);
+$gray-blue: hsl(216, 30%, 68%);
+$v-dk-violet: hsl(270, 9%, 17%);
+$dk-grey-violet: hsl(273, 4%, 51%);
+$lt-grey: hsl(0, 0%, 98%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // line-height: 1.5;
+  text-align: center;
+}
+
+// Hide ul and desktop images on mobile
+.nav__ul,
+.desktop {
+  display: none;
+}
+
+// Reusable styles
+h1,
+h2,
+h3,
+h4 {
+  font-family: "DM Serif Display", sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+p,
+li,
+h5 {
+  font-family: "Karla", sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.button {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  color: $lt-grey;
+  text-transform: uppercase;
+  padding: 0.5rem 2rem;
+  background-color: transparent;
+  border: 2px solid $lt-grey;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+
+  &__logo {
+    height: 100%;
+  }
+}
+
+.hero {
+  background-color: $dk-violet;
+  color: $lt-grey;
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__text {
+    background: url(/images/bg-pattern-intro-left-mobile.svg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding: 4rem 0;
+  }
+
+  &__title {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__p {
+    padding: 0 1.5rem;
+  }
+
+  &__btn {
+    margin: 1.5rem 0;
+  }
+}
+
+.different {
+  position: relative;
+
+  &::before {
+    background: url(/images/bg-pattern-intro-right-mobile.svg) no-repeat;
+    height: 350px;
+    width: 120px;
+    content: "";
+    position: absolute;
+    top: -150px;
+    right: 0;
+  }
+
+  padding: 5rem 0;
+
+  &__img {
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  &__subtitle {
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    padding: 0 1.5rem;
+    font-weight: 700;
+    color: $dk-grey-violet;
+  }
+}
+
+.how {
+  background: $dk-violet url(/images/bg-pattern-how-we-work-mobile.svg) right
+    top no-repeat;
+  color: $lt-grey;
+  padding: 4rem 0;
+  margin: 0 1.5rem;
+  margin-bottom: 5rem;
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+}
+
+.footer {
+  background: $lt-grey;
+  padding-bottom: 3rem;
+
+  &__container {
+    background: url(/images/bg-pattern-footer-mobile.svg) no-repeat top/contain;
+  }
+
+  &__icons {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    // margin-bottom: 2rem;
+    border-bottom: 1px solid $dk-grey-violet;
+    margin: 2rem 1.5rem;
+  }
+
+  &__logo {
+    padding-bottom: 1.5rem;
+  }
+
+  &__social {
+    padding: 0.5rem;
+  }
+
+  &__section {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    color: $dk-grey-violet;
+    margin-bottom: 1rem;
+  }
+
+  &__li {
+    font-weight: 700;
+    padding: 0.3rem 0;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    text-align: left;
+  }
+
+  .nav__ul,
+  .desktop {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .wrapper {
+    margin: 0 5%;
+  }
+
+  .nav {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $dk-grey-violet;
+
+    &__ul {
+      display: flex;
+    }
+
+    &__li {
+      list-style: none;
+      padding: 0 1rem;
+    }
+
+    &__btn {
+      color: $dk-violet;
+      border: 2px solid $dk-violet;
+    }
+  }
+
+  .hero {
+    background: linear-gradient($dk-violet 70%, white 70%);
+
+    &__container {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    &__img {
+      width: 50%;
+    }
+  }
+}
