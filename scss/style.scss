@@ -17,7 +17,11 @@ body {
 }
 
 // Hide ul and desktop images on mobile
-.nav__ul,
+.nav__ul {
+  transform: translateX(-100vw);
+  transition: all 0.5s ease-in-out;
+}
+
 .desktop {
   display: none;
 }
@@ -60,16 +64,62 @@ h5 {
   padding: 0.5rem 2rem;
   background-color: transparent;
   border: 2px solid $lt-grey;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background-color: $lt-grey;
+    color: $dk-violet;
+  }
 }
 
 .nav {
   display: flex;
+  // position: static;
   justify-content: space-between;
+  align-items: center;
+  background: $lt-grey;
   padding: 1.5rem;
+  z-index: 2;
 
   &__logo {
     height: 100%;
   }
+
+  &__li {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.nav__ul.show-menu {
+  transform: translateX(0);
+  position: fixed;
+  background: $v-dk-violet;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 9%;
+  padding-top: 1rem;
+
+  .nav__li {
+    display: flex;
+    justify-content: center;
+    color: $lt-grey;
+    padding-top: 2rem;
+    letter-spacing: 2px;
+    font-size: 1.3rem;
+  }
+
+  .nav__btn {
+    width: 90%;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+  }
+}
+
+body.no-scroll {
+  overflow-y: hidden;
 }
 
 .hero {
@@ -85,16 +135,11 @@ h5 {
     background: url(/images/bg-pattern-intro-left-mobile.svg);
     background-position: left top;
     background-repeat: no-repeat;
-    padding: 4rem 0;
+    padding: 4rem 1.5rem;
   }
 
   &__title {
-    padding: 0 1.5rem;
     margin-bottom: 1.5rem;
-  }
-
-  &__p {
-    padding: 0 1.5rem;
   }
 
   &__btn {
@@ -104,6 +149,7 @@ h5 {
 
 .different {
   position: relative;
+  padding-top: 5rem;
 
   &::before {
     background: url(/images/bg-pattern-intro-right-mobile.svg) no-repeat;
@@ -114,8 +160,6 @@ h5 {
     top: -150px;
     right: 0;
   }
-
-  padding: 5rem 0;
 
   &__img {
     margin-bottom: 1.5rem;
@@ -138,8 +182,8 @@ h5 {
     top no-repeat;
   color: $lt-grey;
   padding: 4rem 0;
-  margin: 0 1.5rem;
-  margin-bottom: 5rem;
+  margin: 5rem 1.5rem;
+  // margin-bottom: 5rem;
 
   &__title {
     margin-bottom: 2rem;
@@ -183,12 +227,21 @@ h5 {
   &__li {
     font-weight: 700;
     padding: 0.3rem 0;
+    list-style: none;
   }
 }
 
 @media (min-width: 800px) {
   body {
     text-align: left;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 2rem;
   }
 
   .nav__ul,
@@ -201,13 +254,14 @@ h5 {
   }
 
   .wrapper {
-    margin: 0 5%;
+    margin: 0 auto;
+    max-width: 1200px;
   }
 
   .nav {
-    text-transform: uppercase;
-    font-weight: 700;
     color: $dk-grey-violet;
+    padding: 1.5rem 0;
+    align-items: center;
 
     &__ul {
       display: flex;
@@ -216,16 +270,28 @@ h5 {
     &__li {
       list-style: none;
       padding: 0 1rem;
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     &__btn {
       color: $dk-violet;
       border: 2px solid $dk-violet;
+
+      &:hover {
+        background: $dk-violet;
+        color: $lt-grey;
+      }
     }
   }
 
   .hero {
     background: linear-gradient($dk-violet 70%, white 70%);
+    position: relative;
+    padding: 5rem 0;
+    // margin-bottom: 5rem;
 
     &__container {
       display: flex;
@@ -234,6 +300,126 @@ h5 {
 
     &__img {
       width: 50%;
+    }
+
+    &__text {
+      background: none;
+      padding: 0;
+      padding-right: 3rem;
+      padding-top: 4rem;
+      // max-width: 20rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 2px;
+        top: 0;
+        left: 0;
+        border-bottom: 2px solid $gray-blue;
+      }
+    }
+
+    &__title {
+      max-width: 500px;
+    }
+
+    &::before {
+      content: "";
+      background: url(/images/bg-pattern-intro-left-desktop.svg) no-repeat;
+      background-size: contain;
+      height: 30rem;
+      width: 20rem;
+      position: absolute;
+      bottom: -10%;
+      left: 0;
+    }
+
+    &::after {
+      content: "";
+      background: url(/images/bg-pattern-intro-right-desktop.svg) no-repeat;
+      background-size: contain;
+      height: 40rem;
+      width: 20rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .different {
+    &::before {
+      background: none;
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 2px;
+      top: 0;
+      left: 0;
+      border-bottom: 2px solid $dk-grey-violet;
+    }
+
+    &__sections {
+      display: flex;
+    }
+
+    &__section {
+      padding-right: 2rem;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    &__img {
+      margin-top: 4rem;
+    }
+
+    &__text {
+      padding: 0;
+      line-height: 2;
+    }
+  }
+
+  .how {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    margin-top: 10rem;
+    background: $dk-violet url(/images/bg-pattern-how-we-work-desktop.svg) top
+      right/contain no-repeat;
+
+    &__title {
+      max-width: 40rem;
+    }
+  }
+
+  .footer {
+    background: $lt-grey url(/images/bg-pattern-footer-desktop.svg) no-repeat;
+
+    &__container {
+      background: none;
+    }
+
+    &__icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      // margin-top: 10rem;
+      margin: 10rem 0 2rem 0;
+      padding-bottom: 1rem;
+    }
+
+    &__sections {
+      display: flex;
+      // justify-content: space-between;
+    }
+
+    &__section {
+      padding-right: 10rem;
     }
   }
 }
