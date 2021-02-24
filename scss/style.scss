@@ -12,21 +12,16 @@ $lt-grey: hsl(0, 0%, 98%);
 }
 
 body {
-  // line-height: 1.5;
   text-align: center;
 }
 
-// Hide ul and desktop images on mobile
-.nav__ul {
-  transform: translateX(-100vw);
-  transition: all 0.5s ease-in-out;
-}
+// Hide desktop images on mobile
 
 .desktop {
   display: none;
 }
 
-// Reusable styles
+// Setting fonts
 h1,
 h2,
 h3,
@@ -56,6 +51,11 @@ h5 {
   line-height: 1.5;
 }
 
+a {
+  text-decoration: none;
+}
+
+// Reusable button styling
 .button {
   font-family: "Karla", sans-serif;
   font-weight: 700;
@@ -73,55 +73,72 @@ h5 {
   }
 }
 
+// Styling nav
 .nav {
   display: flex;
-  // position: static;
   justify-content: space-between;
   align-items: center;
   background: $lt-grey;
   padding: 1.5rem;
   z-index: 2;
+  height: 10%;
 
   &__logo {
     height: 100%;
   }
 
+  &__ul {
+    transform: translateX(120%);
+    position: fixed;
+    transition: all 0.5s ease-in-out;
+    background: $v-dk-violet;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 9%;
+    padding-top: 1rem;
+  }
+
   &__li {
     font-weight: 700;
     text-transform: uppercase;
-  }
-}
-
-.nav__ul.show-menu {
-  transform: translateX(0);
-  position: fixed;
-  background: $v-dk-violet;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 9%;
-  padding-top: 1rem;
-
-  .nav__li {
     display: flex;
     justify-content: center;
-    color: $lt-grey;
+
     padding-top: 2rem;
     letter-spacing: 2px;
     font-size: 1.3rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.7s;
+
+    a {
+      color: $lt-grey;
+    }
   }
 
-  .nav__btn {
+  &__btn {
     width: 90%;
     font-size: 1.3rem;
     padding: 1rem 0;
   }
 }
 
+// Styles to show menu when hamburger is clicked
+.nav__ul.show-menu {
+  transform: translateX(0);
+
+  .nav__li {
+    opacity: 1;
+  }
+}
+
+// Stops user from scrolling when menu is showing
 body.no-scroll {
   overflow-y: hidden;
 }
 
+// Hero section styling
 .hero {
   background-color: $dk-violet;
   color: $lt-grey;
@@ -177,19 +194,20 @@ body.no-scroll {
   }
 }
 
+// How we work section
 .how {
   background: $dk-violet url(/images/bg-pattern-how-we-work-mobile.svg) right
     top no-repeat;
   color: $lt-grey;
   padding: 4rem 0;
   margin: 5rem 1.5rem;
-  // margin-bottom: 5rem;
 
   &__title {
     margin-bottom: 2rem;
   }
 }
 
+// Footer styling
 .footer {
   background: $lt-grey;
   padding-bottom: 3rem;
@@ -201,7 +219,6 @@ body.no-scroll {
   &__icons {
     padding-top: 5rem;
     padding-bottom: 3rem;
-    // margin-bottom: 2rem;
     border-bottom: 1px solid $dk-grey-violet;
     margin: 2rem 1.5rem;
   }
@@ -228,10 +245,14 @@ body.no-scroll {
     font-weight: 700;
     padding: 0.3rem 0;
     list-style: none;
+
+    a {
+      color: $dk-violet;
+    }
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 700px) {
   body {
     text-align: left;
   }
@@ -244,7 +265,6 @@ body.no-scroll {
     font-size: 2rem;
   }
 
-  .nav__ul,
   .desktop {
     display: block;
   }
@@ -259,17 +279,36 @@ body.no-scroll {
   }
 
   .nav {
-    color: $dk-grey-violet;
     padding: 1.5rem 0;
     align-items: center;
+    background: none;
 
     &__ul {
       display: flex;
+      align-items: center;
+      transform: none;
+      height: auto;
+      width: auto;
+      background: none;
+      top: 0;
+      position: inherit;
     }
 
     &__li {
+      opacity: 1;
       list-style: none;
       padding: 0 1rem;
+      font-size: 1rem;
+
+      a {
+        color: $dk-grey-violet;
+        transition: all 0.4s ease-in;
+
+        &:hover {
+          color: $dk-violet;
+          transform: scale(1.1);
+        }
+      }
 
       &:last-child {
         padding-right: 0;
@@ -279,6 +318,9 @@ body.no-scroll {
     &__btn {
       color: $dk-violet;
       border: 2px solid $dk-violet;
+      width: auto;
+      padding: 0.5rem 2rem;
+      font-size: 1rem;
 
       &:hover {
         background: $dk-violet;
@@ -291,7 +333,6 @@ body.no-scroll {
     background: linear-gradient($dk-violet 70%, white 70%);
     position: relative;
     padding: 5rem 0;
-    // margin-bottom: 5rem;
 
     &__container {
       display: flex;
@@ -307,7 +348,6 @@ body.no-scroll {
       padding: 0;
       padding-right: 3rem;
       padding-top: 4rem;
-      // max-width: 20rem;
       position: relative;
 
       &::before {
@@ -408,18 +448,52 @@ body.no-scroll {
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
-      // margin-top: 10rem;
       margin: 10rem 0 2rem 0;
       padding-bottom: 1rem;
     }
 
+    &__social {
+      cursor: pointer;
+      transition: all 0.4s ease-in;
+
+      &:hover {
+        filter: brightness(0.5);
+        transform: scale(1.05);
+      }
+    }
+
     &__sections {
       display: flex;
-      // justify-content: space-between;
     }
 
     &__section {
       padding-right: 10rem;
+    }
+
+    &__ul {
+      position: relative;
+    }
+
+    &__li {
+      // border-bottom: 1px solid transparent;
+      transition: all 0.4s ease-in-out;
+
+      &::after {
+        content: "";
+        width: 70%;
+        border-bottom: 1px solid transparent;
+        display: block;
+        transition: all 0.4s ease-in-out;
+      }
+
+      &:hover::after {
+        border-bottom: 1px solid $dk-violet;
+      }
+
+      // &:hover {
+      //   border-bottom: 1px solid $dk-violet;
+
+      // }
     }
   }
 }
