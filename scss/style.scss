@@ -16,7 +16,6 @@ body {
 }
 
 // Hide desktop images on mobile
-
 .desktop {
   display: none;
 }
@@ -66,6 +65,7 @@ a {
   border: 2px solid $lt-grey;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  letter-spacing: 1px;
 
   &:hover {
     background-color: $lt-grey;
@@ -81,21 +81,22 @@ a {
   background: $lt-grey;
   padding: 1.5rem;
   z-index: 2;
-  height: 10%;
+  height: 10vh;
 
-  &__logo {
-    height: 100%;
-  }
+  // &__logo {
+  //   height: 100%;
+  // }
 
   &__ul {
     transform: translateX(120%);
     position: fixed;
     transition: all 0.5s ease-in-out;
-    background: $v-dk-violet;
+    background: $v-dk-violet url(/images/bg-pattern-mobile-nav.svg)
+      bottom/contain no-repeat;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     left: 0;
-    top: 9%;
+    top: 10%;
     padding-top: 1rem;
   }
 
@@ -110,7 +111,7 @@ a {
     font-size: 1.3rem;
     opacity: 0;
     transition: all 0.5s ease-in-out;
-    transition-delay: 0.7s;
+    transition-delay: 0.6s;
 
     a {
       color: $lt-grey;
@@ -124,7 +125,7 @@ a {
   }
 }
 
-// Styles to show menu when hamburger is clicked
+// Show menu when hamburger is clicked
 .nav__ul.show-menu {
   transform: translateX(0);
 
@@ -191,6 +192,8 @@ body.no-scroll {
     padding: 0 1.5rem;
     font-weight: 700;
     color: $dk-grey-violet;
+    max-width: 500px;
+    margin: auto;
   }
 }
 
@@ -238,7 +241,7 @@ body.no-scroll {
 
   &__title {
     color: $dk-grey-violet;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__li {
@@ -252,19 +255,7 @@ body.no-scroll {
   }
 }
 
-@media (min-width: 700px) {
-  body {
-    text-align: left;
-  }
-
-  h1 {
-    font-size: 4rem;
-  }
-
-  h3 {
-    font-size: 2rem;
-  }
-
+@media (min-width: 600px) {
   .desktop {
     display: block;
   }
@@ -272,14 +263,37 @@ body.no-scroll {
   .mobile {
     display: none;
   }
+}
+
+@media (min-width: 800px) {
+  body {
+    text-align: left;
+  }
+
+  .nav__hamburger {
+    display: none;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: auto;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+  }
 
   .wrapper {
     margin: 0 auto;
     max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
+  // Nav styling
   .nav {
-    padding: 1.5rem 0;
+    padding-top: 1.5rem;
     align-items: center;
     background: none;
 
@@ -318,9 +332,6 @@ body.no-scroll {
     &__btn {
       color: $dk-violet;
       border: 2px solid $dk-violet;
-      width: auto;
-      padding: 0.5rem 2rem;
-      font-size: 1rem;
 
       &:hover {
         background: $dk-violet;
@@ -329,6 +340,7 @@ body.no-scroll {
     }
   }
 
+  // Hero styling
   .hero {
     background: linear-gradient($dk-violet 70%, white 70%);
     position: relative;
@@ -346,8 +358,8 @@ body.no-scroll {
     &__text {
       background: none;
       padding: 0;
-      padding-right: 3rem;
-      padding-top: 4rem;
+      padding-right: 1rem;
+      padding-top: 3rem;
       position: relative;
 
       &::before {
@@ -388,6 +400,7 @@ body.no-scroll {
     }
   }
 
+  // We're different section
   .different {
     &::before {
       background: none;
@@ -419,9 +432,11 @@ body.no-scroll {
     &__text {
       padding: 0;
       line-height: 2;
+      max-width: 500px;
     }
   }
 
+  // How we work section
   .how {
     display: flex;
     justify-content: space-between;
@@ -436,6 +451,7 @@ body.no-scroll {
     }
   }
 
+  // Footer section
   .footer {
     background: $lt-grey url(/images/bg-pattern-footer-desktop.svg) no-repeat;
 
@@ -475,7 +491,6 @@ body.no-scroll {
     }
 
     &__li {
-      // border-bottom: 1px solid transparent;
       transition: all 0.4s ease-in-out;
 
       &::after {
@@ -489,11 +504,16 @@ body.no-scroll {
       &:hover::after {
         border-bottom: 1px solid $dk-violet;
       }
-
-      // &:hover {
-      //   border-bottom: 1px solid $dk-violet;
-
-      // }
     }
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  .hero__text {
+    padding-right: 4rem;
   }
 }
